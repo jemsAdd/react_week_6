@@ -1,0 +1,52 @@
+1,What is useCallback?
+
+     =>useCallback is a React hook used to memoize functions .
+     =>It ensures that the same function reference is returned unless its dependencies change.
+
+2, Why Use useCallback?
+
+     =>Prevents unnecessary re-renders: When passing functions to child components, useCallback avoids recreating the function on every render.
+
+     =>Optimizes performance: Reduces computational overhead in large or complex apps.
+
+     =>Works with React.memo: Ensures child components only re-render when their props actually change.
+
+3, Syntax
+
+      const memoizedFunction = useCallback(() => {
+                   // Function logic
+      }, [dependencies]);
+
+      => Notes
+         -The first argument is the function to memoize.
+         -The second argument is the dependency array (e.g., [count]).
+         -The function is recreated only when a dependency changes.
+
+4,  Key Features
+         =>Memoization:
+           - Caches the function so it doesn’t get recreated unnecessarily.
+         =>Dependency Array: 
+           -Controls when the function is updated.
+         =>Stable References: 
+           -Ensures consistent function references across renders      
+5,   Real-Life Applications
+
+       Child Components:
+         - Prevents unnecessary re-renders when passing callbacks to optimized components (e.g., React.memo).
+
+       Event Handlers: 
+           -Memoizes frequently used handlers like onClick, onChange, etc.
+    
+       Third-Party Libraries:
+            - Ensures stable references for libraries like react-table or react-select.
+       Animations and Interactions: 
+            - Optimizes drag-and-drop, hover, or debounced events. 
+
+6, When Not to Use useCallback
+
+      Simple Apps: 
+          -Overusing useCallback in small apps can add unnecessary complexity.
+
+     Non-Optimized Components: 
+         -If child components aren’t optimized (e.g., using React.memo), 
+         -useCallback won’t provide significant benefits.  
